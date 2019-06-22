@@ -149,7 +149,7 @@
 				65F6287B21B6B5F900C5A39A /* Frameworks */,
 				65F6287C21B6B5F900C5A39A /* Resources */,
 				65F628A421B6B60A00C5A39A /* Embed Frameworks */,
-				9DABED84227AF80700B0144B /* ShellScript */,
+				F1C21725228D6720005B445B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -169,7 +169,7 @@
 				65F6289421B6B60A00C5A39A /* Sources */,
 				65F6289521B6B60A00C5A39A /* Frameworks */,
 				65F6289621B6B60A00C5A39A /* Resources */,
-				9DABED83227AF7FD00B0144B /* ShellScript */,
+				F1C21726228D6730005B445B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -240,7 +240,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9DABED83227AF7FD00B0144B /* ShellScript */ = {
+		F1C21725228D6720005B445B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,7 +257,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		9DABED84227AF80700B0144B /* ShellScript */ = {
+		F1C21726228D6730005B445B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
