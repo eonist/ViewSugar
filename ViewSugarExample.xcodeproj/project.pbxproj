@@ -15,8 +15,9 @@
 		65F6289C21B6B60A00C5A39A /* ViewSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6289A21B6B60A00C5A39A /* ViewSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65F6289F21B6B60A00C5A39A /* ViewSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6289821B6B60A00C5A39A /* ViewSugar.framework */; };
 		65F628A021B6B60A00C5A39A /* ViewSugar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6289821B6B60A00C5A39A /* ViewSugar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		65F628A721B6B66A00C5A39A /* UIView+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F628A621B6B66A00C5A39A /* UIView+VC.swift */; };
-		65F628A921B6B78500C5A39A /* UIView+Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F628A821B6B78500C5A39A /* UIView+Other.swift */; };
+		F11CF2C622BF7F850022C28D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CF2A822BF7F840022C28D /* UITableView+Extension.swift */; };
+		F11CF2C722BF7F850022C28D /* UIView+Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CF2AA22BF7F840022C28D /* UIView+Other.swift */; };
+		F11CF2C822BF7F850022C28D /* UIView+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CF2AB22BF7F840022C28D /* UIView+VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,9 @@
 		65F6289821B6B60A00C5A39A /* ViewSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViewSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F6289A21B6B60A00C5A39A /* ViewSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewSugar.h; sourceTree = "<group>"; };
 		65F6289B21B6B60A00C5A39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65F628A621B6B66A00C5A39A /* UIView+VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+VC.swift"; sourceTree = "<group>"; };
-		65F628A821B6B78500C5A39A /* UIView+Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Other.swift"; sourceTree = "<group>"; };
+		F11CF2A822BF7F840022C28D /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		F11CF2AA22BF7F840022C28D /* UIView+Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Other.swift"; sourceTree = "<group>"; };
+		F11CF2AB22BF7F840022C28D /* UIView+VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+VC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		65F6287521B6B5F900C5A39A = {
 			isa = PBXGroup;
 			children = (
+				F11CF28522BF7F840022C28D /* src */,
 				65F6288021B6B5F900C5A39A /* ViewSugarExample */,
 				65F6289921B6B60A00C5A39A /* ViewSugar */,
 				65F6287F21B6B5F900C5A39A /* Products */,
@@ -112,19 +115,35 @@
 			isa = PBXGroup;
 			children = (
 				65F6289A21B6B60A00C5A39A /* ViewSugar.h */,
-				65F628A521B6B61700C5A39A /* src */,
 				65F6289B21B6B60A00C5A39A /* Info.plist */,
 			);
 			path = ViewSugar;
 			sourceTree = "<group>";
 		};
-		65F628A521B6B61700C5A39A /* src */ = {
+		F11CF28522BF7F840022C28D /* src */ = {
 			isa = PBXGroup;
 			children = (
-				65F628A621B6B66A00C5A39A /* UIView+VC.swift */,
-				65F628A821B6B78500C5A39A /* UIView+Other.swift */,
+				F11CF2A722BF7F840022C28D /* table */,
+				F11CF2A922BF7F840022C28D /* view */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		F11CF2A722BF7F840022C28D /* table */ = {
+			isa = PBXGroup;
+			children = (
+				F11CF2A822BF7F840022C28D /* UITableView+Extension.swift */,
+			);
+			path = table;
+			sourceTree = "<group>";
+		};
+		F11CF2A922BF7F840022C28D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F11CF2AA22BF7F840022C28D /* UIView+Other.swift */,
+				F11CF2AB22BF7F840022C28D /* UIView+VC.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +168,6 @@
 				65F6287B21B6B5F900C5A39A /* Frameworks */,
 				65F6287C21B6B5F900C5A39A /* Resources */,
 				65F628A421B6B60A00C5A39A /* Embed Frameworks */,
-				F1C21725228D6720005B445B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -169,7 +187,6 @@
 				65F6289421B6B60A00C5A39A /* Sources */,
 				65F6289521B6B60A00C5A39A /* Frameworks */,
 				65F6289621B6B60A00C5A39A /* Resources */,
-				F1C21726228D6730005B445B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -239,43 +256,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		F1C21725228D6720005B445B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		F1C21726228D6730005B445B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		65F6287A21B6B5F900C5A39A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -290,8 +270,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F628A921B6B78500C5A39A /* UIView+Other.swift in Sources */,
-				65F628A721B6B66A00C5A39A /* UIView+VC.swift in Sources */,
+				F11CF2C822BF7F850022C28D /* UIView+VC.swift in Sources */,
+				F11CF2C622BF7F850022C28D /* UITableView+Extension.swift in Sources */,
+				F11CF2C722BF7F850022C28D /* UIView+Other.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
