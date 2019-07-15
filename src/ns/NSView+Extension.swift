@@ -1,6 +1,6 @@
 #if os(OSX)
 import Cocoa
-//todo rename to convertPointToView etc. dont use the hiTest prefix
+//Fixme: rename to convertPointToView etc. dont use the hiTest prefix
 extension NSView {
    /**
     * Convenince method that returns the view aswell (by utilising generics)
@@ -68,8 +68,8 @@ extension NSView {
     * New
     * NOTE: convert(p,nil) usualy converts flipped geometry, but when using layer.position it wont work
     */
-   func flipY(_ p:CGPoint)->CGPoint{
-      return CGPoint(p.x, WinParser.height(window!) - p.y)/*flips the window y coordinates*/
+   func flipY(_ p: CGPoint)->CGPoint{
+      return CGPoint(x: p.x, y: WinParser.height(window!) - p.y)/*flips the window y coordinates*/
    }
    /**
     * New
@@ -78,7 +78,7 @@ extension NSView {
    func globToLoc(_ p:CGPoint)->CGPoint{
       let flippedPoint = flipY(p)
       let offset = globalPos()
-      let localPoint = flippedPoint - offset
+      let localPoint: CGPoint = .init(x: flippedPoint.x - offset.x,y: flippedPoint.y - offset.y) // flippedPoint - offset
       return localPoint
    }
    /**
@@ -100,8 +100,8 @@ extension NSView {
    //swift 3 update: The compiler complaints if the values x,y are used, you could try to use upper-case X and Y?!?, or implement x,y in classes such as BaseGraphic and IElement etc
    var X:CGFloat{get{return frame.origin.x}set{frame.origin.x = newValue}}
    var Y:CGFloat{get{return frame.origin.y}set{frame.origin.y = newValue}}
-   var w:CGFloat{get{return frame.width}set{frame.w = newValue}}//aperantly .width is used too may places, you need to refactor it out first, same with height
-   var h:CGFloat{get{return frame.height}set{frame.h = newValue}}
+   var w:CGFloat{get{return frame.width}set{frame.width = newValue}}//aperantly .width is used too may places, you need to refactor it out first, same with height
+   var h:CGFloat{get{return frame.height}set{frame.height = newValue}}
    var idx:Int {return self.superview!.indexOf(self)}/*returns the index of a nsview*/
    /**
     * DEPRECATED
@@ -133,7 +133,7 @@ func disableAnim(_ closure:()->Void){
 }
 
 //crossplatform
-extension View{
+extension View {
    func hasParent(_ parent:View?)->Bool{/*Convenience*/
       return NSViewAsserter.hasParent(self, parent)
    }

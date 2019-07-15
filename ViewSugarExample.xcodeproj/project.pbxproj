@@ -18,6 +18,32 @@
 		F11CF2C622BF7F850022C28D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CF2A822BF7F840022C28D /* UITableView+Extension.swift */; };
 		F11CF2C722BF7F850022C28D /* UIView+Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CF2AA22BF7F840022C28D /* UIView+Other.swift */; };
 		F11CF2C822BF7F850022C28D /* UIView+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CF2AB22BF7F840022C28D /* UIView+VC.swift */; };
+		F1D81DAD22DCAC61008F842A /* ViewSugarMacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D81DAB22DCAC61008F842A /* ViewSugarMacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1D81DD122DCAC96008F842A /* NSViewParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB222DCAC96008F842A /* NSViewParser.swift */; };
+		F1D81DD222DCAC96008F842A /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB322DCAC96008F842A /* NSView+Extension.swift */; };
+		F1D81DD322DCAC96008F842A /* DepthModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB622DCAC96008F842A /* DepthModifier.swift */; };
+		F1D81DD422DCAC96008F842A /* NSTouchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB822DCAC96008F842A /* NSTouchExtensions.swift */; };
+		F1D81DD522DCAC96008F842A /* GestureHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB922DCAC96008F842A /* GestureHUD.swift */; };
+		F1D81DD622DCAC96008F842A /* GestureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBA22DCAC96008F842A /* GestureUtils.swift */; };
+		F1D81DD722DCAC96008F842A /* InteractiveViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBB22DCAC96008F842A /* InteractiveViewExtensions.swift */; };
+		F1D81DD822DCAC96008F842A /* MouseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBD22DCAC96008F842A /* MouseUtils.swift */; };
+		F1D81DD922DCAC96008F842A /* AdvanceNSViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBE22DCAC96008F842A /* AdvanceNSViewModifier.swift */; };
+		F1D81DDA22DCAC96008F842A /* InteractiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBF22DCAC96008F842A /* InteractiveView.swift */; };
+		F1D81DDB22DCAC96008F842A /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC022DCAC96008F842A /* Trackable.swift */; };
+		F1D81DDC22DCAC96008F842A /* AdvanceNSViewParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC122DCAC96008F842A /* AdvanceNSViewParser.swift */; };
+		F1D81DDD22DCAC96008F842A /* ViewKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC222DCAC96008F842A /* ViewKind.swift */; };
+		F1D81DDE22DCAC96008F842A /* InteractiveViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC322DCAC96008F842A /* InteractiveViewUtils.swift */; };
+		F1D81DDF22DCAC96008F842A /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC422DCAC96008F842A /* FlippedView.swift */; };
+		F1D81DE022DCAC96008F842A /* InteractiveViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC522DCAC96008F842A /* InteractiveViewable.swift */; };
+		F1D81DE122DCAC96008F842A /* NSViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC622DCAC96008F842A /* NSViewModifier.swift */; };
+		F1D81DE222DCAC96008F842A /* WinAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC822DCAC96008F842A /* WinAsserter.swift */; };
+		F1D81DE322DCAC96008F842A /* WinExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DC922DCAC96008F842A /* WinExtensions.swift */; };
+		F1D81DE422DCAC96008F842A /* Win.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DCA22DCAC96008F842A /* Win.swift */; };
+		F1D81DE522DCAC96008F842A /* WinModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DCB22DCAC96008F842A /* WinModifier.swift */; };
+		F1D81DE622DCAC96008F842A /* WinParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DCC22DCAC96008F842A /* WinParser.swift */; };
+		F1D81DE722DCAC96008F842A /* NSViewAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DCD22DCAC96008F842A /* NSViewAsserter.swift */; };
+		F1D81DE822DCAC96008F842A /* CALayerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DCF22DCAC96008F842A /* CALayerModifier.swift */; };
+		F1D81DE922DCAC96008F842A /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DD022DCAC96008F842A /* CALayer+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +84,34 @@
 		F11CF2A822BF7F840022C28D /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		F11CF2AA22BF7F840022C28D /* UIView+Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Other.swift"; sourceTree = "<group>"; };
 		F11CF2AB22BF7F840022C28D /* UIView+VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+VC.swift"; sourceTree = "<group>"; };
+		F1D81DA922DCAC61008F842A /* ViewSugarMacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViewSugarMacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1D81DAB22DCAC61008F842A /* ViewSugarMacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewSugarMacOS.h; sourceTree = "<group>"; };
+		F1D81DAC22DCAC61008F842A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D81DB222DCAC96008F842A /* NSViewParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewParser.swift; sourceTree = "<group>"; };
+		F1D81DB322DCAC96008F842A /* NSView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
+		F1D81DB622DCAC96008F842A /* DepthModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthModifier.swift; sourceTree = "<group>"; };
+		F1D81DB822DCAC96008F842A /* NSTouchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTouchExtensions.swift; sourceTree = "<group>"; };
+		F1D81DB922DCAC96008F842A /* GestureHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureHUD.swift; sourceTree = "<group>"; };
+		F1D81DBA22DCAC96008F842A /* GestureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureUtils.swift; sourceTree = "<group>"; };
+		F1D81DBB22DCAC96008F842A /* InteractiveViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveViewExtensions.swift; sourceTree = "<group>"; };
+		F1D81DBD22DCAC96008F842A /* MouseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MouseUtils.swift; sourceTree = "<group>"; };
+		F1D81DBE22DCAC96008F842A /* AdvanceNSViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvanceNSViewModifier.swift; sourceTree = "<group>"; };
+		F1D81DBF22DCAC96008F842A /* InteractiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveView.swift; sourceTree = "<group>"; };
+		F1D81DC022DCAC96008F842A /* Trackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
+		F1D81DC122DCAC96008F842A /* AdvanceNSViewParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvanceNSViewParser.swift; sourceTree = "<group>"; };
+		F1D81DC222DCAC96008F842A /* ViewKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewKind.swift; sourceTree = "<group>"; };
+		F1D81DC322DCAC96008F842A /* InteractiveViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveViewUtils.swift; sourceTree = "<group>"; };
+		F1D81DC422DCAC96008F842A /* FlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
+		F1D81DC522DCAC96008F842A /* InteractiveViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveViewable.swift; sourceTree = "<group>"; };
+		F1D81DC622DCAC96008F842A /* NSViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewModifier.swift; sourceTree = "<group>"; };
+		F1D81DC822DCAC96008F842A /* WinAsserter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinAsserter.swift; sourceTree = "<group>"; };
+		F1D81DC922DCAC96008F842A /* WinExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinExtensions.swift; sourceTree = "<group>"; };
+		F1D81DCA22DCAC96008F842A /* Win.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Win.swift; sourceTree = "<group>"; };
+		F1D81DCB22DCAC96008F842A /* WinModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinModifier.swift; sourceTree = "<group>"; };
+		F1D81DCC22DCAC96008F842A /* WinParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinParser.swift; sourceTree = "<group>"; };
+		F1D81DCD22DCAC96008F842A /* NSViewAsserter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewAsserter.swift; sourceTree = "<group>"; };
+		F1D81DCF22DCAC96008F842A /* CALayerModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerModifier.swift; sourceTree = "<group>"; };
+		F1D81DD022DCAC96008F842A /* CALayer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +130,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1D81DA622DCAC61008F842A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +146,7 @@
 				F11CF28522BF7F840022C28D /* src */,
 				65F6288021B6B5F900C5A39A /* ViewSugarExample */,
 				65F6289921B6B60A00C5A39A /* ViewSugar */,
+				F1D81DAA22DCAC61008F842A /* ViewSugarMacOS */,
 				65F6287F21B6B5F900C5A39A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +156,7 @@
 			children = (
 				65F6287E21B6B5F900C5A39A /* ViewSugarExample.app */,
 				65F6289821B6B60A00C5A39A /* ViewSugar.framework */,
+				F1D81DA922DCAC61008F842A /* ViewSugarMacOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +186,7 @@
 		F11CF28522BF7F840022C28D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F1D81DB122DCAC96008F842A /* ns */,
 				F11CF2A722BF7F840022C28D /* table */,
 				F11CF2A922BF7F840022C28D /* view */,
 			);
@@ -146,6 +210,95 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		F1D81DAA22DCAC61008F842A /* ViewSugarMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DAB22DCAC61008F842A /* ViewSugarMacOS.h */,
+				F1D81DAC22DCAC61008F842A /* Info.plist */,
+			);
+			path = ViewSugarMacOS;
+			sourceTree = "<group>";
+		};
+		F1D81DB122DCAC96008F842A /* ns */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DB222DCAC96008F842A /* NSViewParser.swift */,
+				F1D81DB322DCAC96008F842A /* NSView+Extension.swift */,
+				F1D81DB422DCAC96008F842A /* other */,
+				F1D81DC622DCAC96008F842A /* NSViewModifier.swift */,
+				F1D81DC722DCAC96008F842A /* window */,
+				F1D81DCD22DCAC96008F842A /* NSViewAsserter.swift */,
+				F1D81DCE22DCAC96008F842A /* calayer */,
+			);
+			path = ns;
+			sourceTree = "<group>";
+		};
+		F1D81DB422DCAC96008F842A /* other */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DB522DCAC96008F842A /* depth */,
+				F1D81DB722DCAC96008F842A /* touch */,
+				F1D81DBB22DCAC96008F842A /* InteractiveViewExtensions.swift */,
+				F1D81DBC22DCAC96008F842A /* mouse */,
+				F1D81DBE22DCAC96008F842A /* AdvanceNSViewModifier.swift */,
+				F1D81DBF22DCAC96008F842A /* InteractiveView.swift */,
+				F1D81DC022DCAC96008F842A /* Trackable.swift */,
+				F1D81DC122DCAC96008F842A /* AdvanceNSViewParser.swift */,
+				F1D81DC222DCAC96008F842A /* ViewKind.swift */,
+				F1D81DC322DCAC96008F842A /* InteractiveViewUtils.swift */,
+				F1D81DC422DCAC96008F842A /* FlippedView.swift */,
+				F1D81DC522DCAC96008F842A /* InteractiveViewable.swift */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		F1D81DB522DCAC96008F842A /* depth */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DB622DCAC96008F842A /* DepthModifier.swift */,
+			);
+			path = depth;
+			sourceTree = "<group>";
+		};
+		F1D81DB722DCAC96008F842A /* touch */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DB822DCAC96008F842A /* NSTouchExtensions.swift */,
+				F1D81DB922DCAC96008F842A /* GestureHUD.swift */,
+				F1D81DBA22DCAC96008F842A /* GestureUtils.swift */,
+			);
+			path = touch;
+			sourceTree = "<group>";
+		};
+		F1D81DBC22DCAC96008F842A /* mouse */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DBD22DCAC96008F842A /* MouseUtils.swift */,
+			);
+			path = mouse;
+			sourceTree = "<group>";
+		};
+		F1D81DC722DCAC96008F842A /* window */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DC822DCAC96008F842A /* WinAsserter.swift */,
+				F1D81DC922DCAC96008F842A /* WinExtensions.swift */,
+				F1D81DCA22DCAC96008F842A /* Win.swift */,
+				F1D81DCB22DCAC96008F842A /* WinModifier.swift */,
+				F1D81DCC22DCAC96008F842A /* WinParser.swift */,
+			);
+			path = window;
+			sourceTree = "<group>";
+		};
+		F1D81DCE22DCAC96008F842A /* calayer */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81DCF22DCAC96008F842A /* CALayerModifier.swift */,
+				F1D81DD022DCAC96008F842A /* CALayer+Extension.swift */,
+			);
+			path = calayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -154,6 +307,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				65F6289C21B6B60A00C5A39A /* ViewSugar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1D81DA422DCAC61008F842A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1D81DAD22DCAC61008F842A /* ViewSugarMacOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +358,24 @@
 			productReference = 65F6289821B6B60A00C5A39A /* ViewSugar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F1D81DA822DCAC61008F842A /* ViewSugarMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1D81DB022DCAC61008F842A /* Build configuration list for PBXNativeTarget "ViewSugarMacOS" */;
+			buildPhases = (
+				F1D81DA422DCAC61008F842A /* Headers */,
+				F1D81DA522DCAC61008F842A /* Sources */,
+				F1D81DA622DCAC61008F842A /* Frameworks */,
+				F1D81DA722DCAC61008F842A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ViewSugarMacOS;
+			productName = ViewSugarMacOS;
+			productReference = F1D81DA922DCAC61008F842A /* ViewSugarMacOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -215,6 +394,9 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 					};
+					F1D81DA822DCAC61008F842A = {
+						CreatedOnToolsVersion = 10.2;
+					};
 				};
 			};
 			buildConfigurationList = 65F6287921B6B5F900C5A39A /* Build configuration list for PBXProject "ViewSugarExample" */;
@@ -232,6 +414,7 @@
 			targets = (
 				65F6287D21B6B5F900C5A39A /* ViewSugarExample */,
 				65F6289721B6B60A00C5A39A /* ViewSugar */,
+				F1D81DA822DCAC61008F842A /* ViewSugarMacOS */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +431,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		65F6289621B6B60A00C5A39A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1D81DA722DCAC61008F842A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +463,38 @@
 				F11CF2C822BF7F850022C28D /* UIView+VC.swift in Sources */,
 				F11CF2C622BF7F850022C28D /* UITableView+Extension.swift in Sources */,
 				F11CF2C722BF7F850022C28D /* UIView+Other.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1D81DA522DCAC61008F842A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1D81DD322DCAC96008F842A /* DepthModifier.swift in Sources */,
+				F1D81DE022DCAC96008F842A /* InteractiveViewable.swift in Sources */,
+				F1D81DDA22DCAC96008F842A /* InteractiveView.swift in Sources */,
+				F1D81DD722DCAC96008F842A /* InteractiveViewExtensions.swift in Sources */,
+				F1D81DE122DCAC96008F842A /* NSViewModifier.swift in Sources */,
+				F1D81DDE22DCAC96008F842A /* InteractiveViewUtils.swift in Sources */,
+				F1D81DD522DCAC96008F842A /* GestureHUD.swift in Sources */,
+				F1D81DD122DCAC96008F842A /* NSViewParser.swift in Sources */,
+				F1D81DE922DCAC96008F842A /* CALayer+Extension.swift in Sources */,
+				F1D81DD422DCAC96008F842A /* NSTouchExtensions.swift in Sources */,
+				F1D81DDB22DCAC96008F842A /* Trackable.swift in Sources */,
+				F1D81DE322DCAC96008F842A /* WinExtensions.swift in Sources */,
+				F1D81DE522DCAC96008F842A /* WinModifier.swift in Sources */,
+				F1D81DD822DCAC96008F842A /* MouseUtils.swift in Sources */,
+				F1D81DDF22DCAC96008F842A /* FlippedView.swift in Sources */,
+				F1D81DD922DCAC96008F842A /* AdvanceNSViewModifier.swift in Sources */,
+				F1D81DD222DCAC96008F842A /* NSView+Extension.swift in Sources */,
+				F1D81DE822DCAC96008F842A /* CALayerModifier.swift in Sources */,
+				F1D81DD622DCAC96008F842A /* GestureUtils.swift in Sources */,
+				F1D81DE222DCAC96008F842A /* WinAsserter.swift in Sources */,
+				F1D81DDC22DCAC96008F842A /* AdvanceNSViewParser.swift in Sources */,
+				F1D81DE422DCAC96008F842A /* Win.swift in Sources */,
+				F1D81DDD22DCAC96008F842A /* ViewKind.swift in Sources */,
+				F1D81DE722DCAC96008F842A /* NSViewAsserter.swift in Sources */,
+				F1D81DE622DCAC96008F842A /* WinParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +737,66 @@
 			};
 			name = Release;
 		};
+		F1D81DAE22DCAC61008F842A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ViewSugarMacOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.futurelab.ViewSugarMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F1D81DAF22DCAC61008F842A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ViewSugarMacOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.futurelab.ViewSugarMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -541,6 +823,15 @@
 			buildConfigurations = (
 				65F628A221B6B60A00C5A39A /* Debug */,
 				65F628A321B6B60A00C5A39A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1D81DB022DCAC61008F842A /* Build configuration list for PBXNativeTarget "ViewSugarMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1D81DAE22DCAC61008F842A /* Debug */,
+				F1D81DAF22DCAC61008F842A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

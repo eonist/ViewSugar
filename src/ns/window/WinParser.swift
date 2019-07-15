@@ -50,10 +50,10 @@ class WinParser {
     * PARAM: strict is a Boolean flag that allows an absolute assert of the class, say if you store the class type in a variable before calling this method and the generic is a subType then the strict flag works well to assert absolutness. (It does not work with protocols, research into protocol supoprt for the strict flag is out of scope for now)
     * NOTE: you only need to use the strict flag if you work with stored class types.
     */
-   static func firstWindow<T>(_ type:T.Type, _ strict:Bool = false)-> T? {
-      return NSApp.windows.first(where:{
+   static func firstWindow<T>(_ type: T.Type, _ strict: Bool = false)-> T? {
+      return NSApp.windows.first {
          ($0 as? T != nil && !strict) || (type is AnyClass && $0.isMember(of:type as! AnyClass))
-      }) as? T
+      } as? T
    }
    /**
     * Returns an array of NSWindow of type T in the current app

@@ -1,7 +1,7 @@
 #if os(OSX)
 import Cocoa
 /**
- * TODO: make a method with the NSView.sortSubviewsUsingFunction method
+ * - TODO: make a method with the NSView.sortSubviewsUsingFunction method
  * NOTE: to set position use .point = CGPoint()
  */
 class NSViewModifier {
