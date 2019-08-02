@@ -6,7 +6,7 @@ import UIKit
 extension UIView {
    /**
       * Traverses the entire UIView hirearchy and collects views that are of speccific PARAM: type
-      * TODO: ⚠️️ this can be written more elegantly with flatmap
+      * - Fixme: ⚠️️ this can be written more elegantly with flatMap
       */
      func descendants<T>(type: T.Type? = nil) -> [T] {
          var subViewsOfType: [T] = []
@@ -22,7 +22,8 @@ extension UIView {
      }
    /**
     * Returns a ViewController of a class Kind
-    * EXAMPLE: UIView.vc(vcKind: CustomViewController.self)//ref to an instance of CustomViewController
+    * ## Examples:
+    * UIView.vc(vcKind: CustomViewController.self)//ref to an instance of CustomViewController
     */
    public static func vc<T: UIViewController>(vcKind: T.Type? = nil) -> T? {
       guard let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window else { return nil }
@@ -35,8 +36,9 @@ extension UIView {
       }
       return nil
    }
-   /*
+   /**
     * Returns the top most viewController
+    * - Fixme: ⚠️️ make this a var?
     */
    public static func topMostController() -> UIViewController? {
       var topController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
@@ -60,6 +62,7 @@ extension UIView {
    }
    /**
     * Easily get Controller
+    * - Fixme: ⚠️️ make this a var?
     */
    public func controller() -> UIViewController? {
       if let nextViewControllerResponder = next as? UIViewController {
@@ -72,6 +75,7 @@ extension UIView {
    }
    /**
     * Easily get navController from
+    * - Fixme: ⚠️️ make this a var?
     */
    public func navigationController() -> UINavigationController? {
       guard let controller = controller() else { return nil }
