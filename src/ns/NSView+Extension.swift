@@ -25,7 +25,7 @@ extension NSView {
    func removeSubviewAt(_ i:Int){
       NSViewModifier.removeSubviewAt(self, i)
    }
-   
+
    /**
     * Returns index of a subView, returns -1 if nothing is found
     * TODO: ⚠️️ use Int? instead of -1 and rename to index
@@ -51,7 +51,7 @@ extension NSView {
    func globalPoint()->CGPoint{
       return (window?.mouseLocationOutsideOfEventStream)!
    }
-   
+
    /**
     * Returns a localPoint (UNTESTED)
     */
@@ -94,7 +94,7 @@ extension NSView {
       }
       return offset
    }
-   
+
    var mouseX:CGFloat{return MouseUtils.point(self).x}/*UNTESTED*/
    var mouseY:CGFloat{return MouseUtils.point(self).y}/*UNTESTED*/
    //swift 3 update: The compiler complaints if the values x,y are used, you could try to use upper-case X and Y?!?, or implement x,y in classes such as BaseGraphic and IElement etc
@@ -122,10 +122,11 @@ extension NSView {
 
 /**
  * Disable implicit animation
- * TODO: ⚠️️ Figure out how to disaple auto anim in NSViews i think it's: layer.actions = ["sublayers":NSNull()] see:https://stackoverflow.com/questions/5833488/how-to-disable-calayer-implicit-animations/43560444#43560444   and:  https://stackoverflow.com/questions/2244147/disabling-implicit-animations-in-calayer-setneedsdisplayinrect?rq=1
- * EXAMPLE: disableAnim{view.isHidden = true}//Default animation is now disabled, Basically whatever you put inside the closure is not animated
+ * - Fixme: ⚠️️ Figure out how to disaple auto anim in NSViews i think it's: layer.actions = ["sublayers":NSNull()] see: https://stackoverflow.com/questions/5833488/how-to-disable-calayer-implicit-animations/43560444#43560444   and:  https://stackoverflow.com/questions/2244147/disabling-implicit-animations-in-calayer-setneedsdisplayinrect?rq=1
+ * ## Examples:
+ * disableAnim { view.isHidden = true } // Default animation is now disabled, Basically whatever you put inside the closure is not animated
  */
-func disableAnim(_ closure:()->Void){
+func disableAnim(_ closure: () -> Void){
    CATransaction.begin()
    CATransaction.setDisableActions(true)
    closure()
@@ -146,4 +147,3 @@ extension View {
 }
 
 #endif
-
