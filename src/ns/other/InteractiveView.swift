@@ -3,10 +3,10 @@
 import Cocoa
 /**
  * - IMPORTANT: ⚠️️ To understand the relatioship between NSEvent and hitTest: think of NSEvent as going upStream in an inverted pyramid hirarachy and hitTest going downStream in the same hirarachy
- * - NOTE: Remember to override the mouseDown method in subclasses if you want to add functionality to the mouseDown action
- * - NOTE: Use mouseDragged method if you want to call a method while the mouse is dragged
- * - NOTE: If you hi-jack the event handler variable then the parent will not recieve any events. Its better to override onEvent (one could us emany seletors but that would complicate the code. its simple enough to overide onEvent)
- * - NOTE: its primary use-case is to wrap NSEvents into Event so that the view hierarchy can retrieve the view where the event came from which is not possible when using NSEvent. NSEvent cant be subclasses so this is the best solution I've found for this particular use-case.
+ * - Note: Remember to override the mouseDown method in subclasses if you want to add functionality to the mouseDown action
+ * - Note: Use mouseDragged method if you want to call a method while the mouse is dragged
+ * - Note: If you hi-jack the event handler variable then the parent will not recieve any events. Its better to override onEvent (one could us emany seletors but that would complicate the code. its simple enough to overide onEvent)
+ * - Note: its primary use-case is to wrap NSEvents into Event so that the view hierarchy can retrieve the view where the event came from which is not possible when using NSEvent. NSEvent cant be subclasses so this is the best solution I've found for this particular use-case.
  * - CAUTION: ⚠️️ seems to not work as a container for i.e Adding a button to a View instance (for now use FlippedView when using it as a container)
  * - Fixme: ⚠️️ Make the isChildrenInteractive:Bool -> You may want to make a variable that also can set the isInteractive var of children of the view:
  * - IMPORTANT: ⚠️️ you must implement custom hitTest overrides for NSViews added as subViews to this class.
@@ -20,20 +20,20 @@ class InteractiveView: FlippedView, InteractiveViewable {
    var isInteractive: Bool = true/*Toggles the interactive part on and of, Text uses this variable to disable interactivty I.E: TextButton, remember that this effects all descendants as well*/
    private var isMouseOver: Bool = false/*you should hit test this on init*/
    private var hasMouseEntered: Bool = false/*you should hit test this on init*/
-   private var hasHandCursor: Bool = false//TODO: ⚠️️ Consider removing this, its clutters up the method, add handCursor flag in subClass when needed
-   /*this can probably be removed--->*/override var wantsDefaultClipping:Bool{return false}/*<--yepp remove this, once more UI components are tested*///avoids clipping the view, so dont remove?
+   private var hasHandCursor: Bool = false // Fixme: ⚠️️ Consider removing this, its clutters up the method, add handCursor flag in subClass when needed
+   /*this can probably be removed--->*/override var wantsDefaultClipping: Bool { return false }/*<--yepp remove this, once more UI components are tested*///avoids clipping the view, so dont remove?
    override init(frame frameRect: NSRect) {
       super.init(frame: frameRect)
       self.wantsLayer = true/*if true then view is layer backed*/
       layer = CALayer()/*needs to be layer-hosted so that we don't get clipping of children*/
       layer?.masksToBounds = false/*This is the variable that makes subchildren mask its parents frame, set it to false and they won't mask*/
-      layer?.actions = ["sublayers": NSNull(),"content": NSNull(),"onOrderOut": NSNull(),"bounds": NSNull(), "hidden": NSNull(), "position": NSNull()]/*avoids implicit animation*/
+      layer?.actions = ["sublayers": NSNull(), "content": NSNull(), "onOrderOut": NSNull(), "bounds": NSNull(), "hidden": NSNull(), "position": NSNull()]/*avoids implicit animation*/
       self.layerContentsRedrawPolicy = .onSetNeedsDisplay/*Supposedly this makes anim fast, may or may not have an effect, try diable and enable it from time to time*/
    }
    /**
     * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down
     */
-   func onEvent(_ event: Event){
+   func onEvent(_ event: Event) {
       self.event(event.setImmediate(self))//the setImmediate attaches the immediate instance to the event.
    }
    /**
@@ -45,7 +45,7 @@ class InteractiveView: FlippedView, InteractiveViewable {
    func mouseMoved(_ event: MouseEvent) {
       //        Swift.print("mouseMoved")
       //Swift.print("\(type(of: self))" + "mouseMoved(): event.locationInWindow" + "\(String(describing: event.event!.locationInWindow))")
-      guard let parent = self.superview as? InteractiveViewable else {return}
+      guard let parent = self.superview as? InteractiveViewable else { return }
       parent.mouseMoved(event.setImmediate(self).cast())/*informs the parent that an event occured*/
    }
    /**
@@ -54,7 +54,7 @@ class InteractiveView: FlippedView, InteractiveViewable {
     */
    func mouseOver(_ event: MouseEvent) {
       //        Swift.print("mouseOver")
-      guard let parent = self.superview as? InteractiveViewable else {return}
+      guard let parent = self.superview as? InteractiveViewable else { return }
       parent.mouseOver(event.setImmediate(self).cast())/*informs the parent that an event occured*/
    }
    /**
@@ -103,9 +103,9 @@ class InteractiveView: FlippedView, InteractiveViewable {
    override func mouseMoved(with event: NSEvent) {
       //        Swift.print("mouseMoved")
       //Swift.print("\(type(of: self))" + ".mouseMoved(): event.locationInWindow" + "\(event.locationInWindow)")//+ "\(viewUnderMouse)" + " self: " + "\(self)"
-      guard hasMouseEntered else {return}/*Only run the following code when inside the actual TrackingArea*/
+      guard hasMouseEntered else { return }/*Only run the following code when inside the actual TrackingArea*/
       if viewUnderMouse === self {//mouse move on the "visible" part of the view
-         if !isMouseOver { mouseOver(MouseEvent(event,self)); isMouseOver = true }
+         if !isMouseOver { mouseOver(MouseEvent(event, self)); isMouseOver = true }
          mouseMoved(MouseEvent(event, self))
       }
       else if isMouseOver { mouseOut(MouseEvent(event, self)); isMouseOver = false }//mouse move on the "invisible" parth of the view
@@ -137,7 +137,6 @@ class InteractiveView: FlippedView, InteractiveViewable {
       hasMouseEntered = false/*optimization*/
       isMouseOver = false
       mouseOut(MouseEvent(event, self))
-      
       //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
    }
    override func mouseDown(with event: NSEvent) {
@@ -157,14 +156,14 @@ class InteractiveView: FlippedView, InteractiveViewable {
       //let p = aPoint + CGPoint(-layer!.position.x,layer!.position.y)
       //Swift.print("hitTest() \(type(of: self)) aPoint: " + "\(aPoint) p: \(p) layer!.position: " + "\(layer!.position)")
       guard isInteractive else { return nil/*else (aka not interactive)*/ }
-      return subviews.reversed().lazy.compactMap{ $0.hitTest(aPoint) }.first/*if non-nil then a point was found within its hittable area,if no hitView is found return nil, the parent hitTest will then continue it's search through its siblings etc*/
+      return subviews.reversed().lazy.compactMap { $0.hitTest(aPoint) }.first/*if non-nil then a point was found within its hittable area,if no hitView is found return nil, the parent hitTest will then continue it's search through its siblings etc*/
    }
    /**
     * Enables the hand cursor on enter
     */
    override func resetCursorRects() {
       if hasHandCursor {
-         let cursor: NSCursor = NSCursor.pointingHand
+         let cursor: NSCursor = .pointingHand
          addCursorRect(frame, cursor: cursor)
          //            cursor.setOnMouseEntered(true)
       } else { super.resetCursorRects() }

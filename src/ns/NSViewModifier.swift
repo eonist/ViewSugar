@@ -5,7 +5,7 @@ import Cocoa
  * - NOTE: to set position use .point = CGPoint()
  */
 class NSViewModifier {
-   static func applyColor(_ view: NSView,_ nsFillColor: NSColor = .clear,_ nsLineColor: NSColor = .clear,_ lineWidth: Int = 0) {
+   static func applyColor(_ view: NSView, _ nsFillColor: NSColor = .clear, _ nsLineColor: NSColor = .clear, _ lineWidth: Int = 0) {
       let cgFillColor: CGColor = CGColorParser.cgColor(nsFillColor)
       if nsFillColor != .clear {/*clearColor: 0.0 white, 0.0 alpha */
          view.layer!.backgroundColor = cgFillColor
@@ -24,15 +24,15 @@ class NSViewModifier {
     * view.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
     * view.subviews.map({ $0.removeFromSuperview() }) // this returns modified array
     */
-   static func removeAllChildren(_ view:NSView){
-      while view.subviews.count > 0 {view.subviews[0].removeFromSuperview()}
+   static func removeAllChildren(_ view: NSView) {
+      while !view.subviews.isEmpty { view.subviews[0].removeFromSuperview() }
    }
    /**
     * - NOTE: This can also be used as a setSubViewAt method. Apple will reuse the same View so no duplicates. Although apples own sort method is prefered, but it uses c-pointers which can be hard to implement in swift.
     * - NOTE: could also be named insertAt
     * - Fixme: add a method named prepend that inserts NSView items at the top of the stack
     */
-   static func addSubviewAt<T:NSView>(_ view: T,_ subView:T, _ i:Int)->NSView{//Returns the subview for convenience
+   static func addSubviewAt<T: NSView>(_ view: T, _ subView: T, _ i: Int) -> NSView { // Returns the subview for convenience
       if view.subviews.isEmpty {
          view.addSubview(subView)
       } else if i == 0 {/*the view.subviews.count > 0*/
@@ -48,25 +48,25 @@ class NSViewModifier {
       if let item = view.subviews[safe: at] { item.removeFromSuperview() }
    }
    /**
-    * NOTE: Removes in the backward direction over the array
+    * - Note: Removes in the backward direction over the array
     */
-   static func removeMany(_ views: [NSView]) {//TODO: rename to removeAll(all) ? maybe?
+   static func removeMany(_ views: [NSView]) { // Fixme: rename to removeAll(all) ? maybe?
       views.reversed().forEach { $0.removeFromSuperview() }
    }
    /**
     * Beta (not tested, but similar code will work, use pen and paper if it doesnt)
-    * NOTE: remove children in a backward direction over the array
+    * - NOTE: remove children in a backward direction over the array
     */
-   static func removeAllOfType<T>(_ view: NSView, _ type:T.Type) {
-      view.subviews.reversed().filter() { $0 as? T != nil }.forEach { $0.removeFromSuperview() }//use map if you want to return removed views in the future
+   static func removeAllOfType<T>(_ view: NSView, _ type: T.Type) {
+      view.subviews.reversed().filter { $0 as? T != nil }.forEach { $0.removeFromSuperview() } // use map if you want to return removed views in the future
    }
 }
 //DEPRECATED
-extension NSViewModifier{
+extension NSViewModifier {
    /*static func childrenOfType<T>(_ view:NSView, _ type:T.Type)->[T]{
     return NSViewParser.childrenOfType(view,type)
     }*/
-   static func removeAll(_ view:NSView){
+   static func removeAll(_ view: NSView) {
       removeAllChildren(view)
    }
 }

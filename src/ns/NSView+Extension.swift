@@ -5,32 +5,32 @@ extension NSView {
    /**
     * Convenince method that returns the view aswell (by utilising generics)
     */
-   func addSubView<T:NSView>(_ view: T)->T{
+   func addSubView<T: NSView>(_ view: T) -> T {
       self.addSubview(view)
       return view
    }
-   func addSubViewAt<T:NSView>(_ view:T, _ i:Int)->T{
+   func addSubViewAt<T: NSView>(_ view: T, _ i: Int) -> T {
       _ = NSViewModifier.addSubviewAt(self, view, i)
       return view
    }
    /**
-    * TODO: ⚠️️ You can probably deprecated this
+    * - Fixme: ⚠️️ You can probably deprecated this
     */
-   func addSubviewAt<T:NSView>(_ view: T,_ i:Int){
+   func addSubviewAt<T: NSView>(_ view: T, _ i: Int) {
       _ = NSViewModifier.addSubviewAt(self, view, i)
    }
    /**
-    * TODO: Probably upgrade this to use Generics and deprecate it
+    * - Fixme: ⚠️️ Probably upgrade this to use Generics and deprecate it
     */
-   func removeSubviewAt(_ i:Int){
+   func removeSubviewAt(_ i: Int) {
       NSViewModifier.removeSubviewAt(self, i)
    }
 
    /**
     * Returns index of a subView, returns -1 if nothing is found
-    * TODO: ⚠️️ use Int? instead of -1 and rename to index
+    * - Fixme: ⚠️️ use Int? instead of -1 and rename to index
     */
-   func indexOf<T:NSView>(_ subView:T)->Int{
+   func indexOf<T: NSView>(_ subView: T) -> Int {
       return NSViewParser.indexOf(self, subView)
    }
    /*you can't have setPoint() as  a method by having this variable here, something to keep in mind*///pos is occupied by another class
@@ -38,56 +38,56 @@ extension NSView {
    //@objc var size:CGSize {get{return frame.size}set{frame.size = newValue}}//new,convenience
    /**
     * Returns localPosition in a view (converts a global position to a local position)
-    * TODO: ⚠️️ hopefully this method also works if the view is not 0,0 in the window
+    * - Fixme: ⚠️️ hopefully this method also works if the view is not 0,0 in the window
     * Returns the local mouse position in the views coordinate system 0,0
-    * NOTE: can also be used on window.content.localPos to get the pos in a a window
+    * - Note: can also be used on window.content.localPos to get the pos in a a window
     */
-   func localPos()->CGPoint{
-      return self.convert((window?.mouseLocationOutsideOfEventStream)!,from:nil)
+   func localPos() -> CGPoint {
+      return self.convert((window?.mouseLocationOutsideOfEventStream)!, from: nil)
    }
    /**
     * IMPORTANT: You may need to y-flip this point
     */
-   func globalPoint()->CGPoint{
+   func globalPoint() -> CGPoint {
       return (window?.mouseLocationOutsideOfEventStream)!
    }
 
    /**
     * Returns a localPoint (UNTESTED)
     */
-   func globalToLocal(_ p:CGPoint) -> CGPoint{
-      return convert(p, from:self)
+   func globalToLocal(_ p: CGPoint) -> CGPoint {
+      return convert(p, from: self)
    }
    /**
     * Returns a globalPoint (UNTESTED)
     */
-   func localToGlobal(_ p:CGPoint) -> CGPoint{
-      return convert(p, to:self)
+   func localToGlobal(_ p: CGPoint) -> CGPoint {
+      return convert(p, to: self)
    }
    /**
     * New
     * NOTE: convert(p,nil) usualy converts flipped geometry, but when using layer.position it wont work
     */
-   func flipY(_ p: CGPoint)->CGPoint{
-      return CGPoint(x: p.x, y: WinParser.height(window!) - p.y)/*flips the window y coordinates*/
+   func flipY(_ p: CGPoint) -> CGPoint {
+      return .init(x: p.x, y: WinParser.height(window!) - p.y)/*flips the window y coordinates*/
    }
    /**
     * New
     * Converts global p to local p
     */
-   func globToLoc(_ p:CGPoint)->CGPoint{
+   func globToLoc(_ p: CGPoint) -> CGPoint {
       let flippedPoint = flipY(p)
       let offset = globalPos()
-      let localPoint: CGPoint = .init(x: flippedPoint.x - offset.x,y: flippedPoint.y - offset.y) // flippedPoint - offset
+      let localPoint: CGPoint = .init(x: flippedPoint.x - offset.x, y: flippedPoint.y - offset.y) // flippedPoint - offset
       return localPoint
    }
    /**
     * New
     * Returns the globalPoint of the self.frame.origin (where is this view in the POV of 0,0 of the upper most view)
     */
-   func globalPos()->CGPoint{
-      var offset:CGPoint = CGPoint()
-      var parent:NSView? = self.superview
+   func globalPos() -> CGPoint {
+      var offset: CGPoint = .init()
+      var parent: NSView? = self.superview
       while parent?.superview != nil {
          offset += parent!.layer!.position
          parent = parent?.superview
@@ -95,29 +95,29 @@ extension NSView {
       return offset
    }
 
-   var mouseX:CGFloat{return MouseUtils.point(self).x}/*UNTESTED*/
-   var mouseY:CGFloat{return MouseUtils.point(self).y}/*UNTESTED*/
+   var mouseX: CGFloat { return MouseUtils.point(self).x } /*UNTESTED*/
+   var mouseY: CGFloat { return MouseUtils.point(self).y } /*UNTESTED*/
    //swift 3 update: The compiler complaints if the values x,y are used, you could try to use upper-case X and Y?!?, or implement x,y in classes such as BaseGraphic and IElement etc
-   var X:CGFloat{get{return frame.origin.x}set{frame.origin.x = newValue}}
-   var Y:CGFloat{get{return frame.origin.y}set{frame.origin.y = newValue}}
-   var w:CGFloat{get{return frame.width}set{frame.width = newValue}}//aperantly .width is used too may places, you need to refactor it out first, same with height
-   var h:CGFloat{get{return frame.height}set{frame.height = newValue}}
-   var idx:Int {return self.superview!.indexOf(self)}/*returns the index of a nsview*/
+   var X: CGFloat { get { return frame.origin.x }set { frame.origin.x = newValue } }
+   var Y: CGFloat { get { return frame.origin.y }set { frame.origin.y = newValue } }
+   var w: CGFloat { get { return frame.width } set { frame.width = newValue } }//aperantly .width is used too may places, you need to refactor it out first, same with height
+   var h: CGFloat { get { return frame.height } set { frame.height = newValue } }
+   var idx: Int { return self.superview!.indexOf(self) } /*returns the index of a nsview*/
    /**
     * DEPRECATED
     */
    //func getSubviewAt(_ i:Int)->NSView{return NSViewParser.getSubViewAt(self, i)}//favour getSubViewAt method instead, as its optional
-   func getSubViewAt(_ i:Int)->NSView?{return NSViewParser.getSubViewAt(self, i)}
-   var numSubViews:Int {return subviews.count}/*convenience*/
+   func getSubViewAt(_ i: Int) -> NSView? { return NSViewParser.getSubViewAt(self, i) }
+   var numSubViews: Int { return subviews.count }/*convenience*/
    /**
     * New
     */
-   func first<T>(ofKind:T.Type? = nil) -> T? {
+   func first<T>(ofKind: T.Type? = nil) -> T? {
       return NSViewParser.first(view: self, ofKind: ofKind)
    }
 }
 //⚠️️ These won't work since swift 3 i think, use .w and .h instead (aperantly .width is used too may places, you need to refactor it out first, same with height)
-//var width:CGFloat{return frame.width}//TODO:implement later
+//var width:CGFloat{return frame.width}//Fixme:implement later
 //var height:CGFloat{return frame.height}
 
 /**
@@ -126,7 +126,7 @@ extension NSView {
  * ## Examples:
  * disableAnim { view.isHidden = true } // Default animation is now disabled, Basically whatever you put inside the closure is not animated
  */
-func disableAnim(_ closure: () -> Void){
+func disableAnim(_ closure: () -> Void) {
    CATransaction.begin()
    CATransaction.setDisableActions(true)
    closure()
@@ -135,15 +135,14 @@ func disableAnim(_ closure: () -> Void){
 
 //crossplatform
 extension View {
-   func hasParent(_ parent:View?)->Bool{/*Convenience*/
+   func hasParent(_ parent: View?) -> Bool {/*Convenience*/
       return NSViewAsserter.hasParent(self, parent)
    }
    /**
     * Asserts if PARAM: view is a subView of PARAM: parent
     */
-   func contains<T:View>(_ view:T)->Bool{
+   func contains<T: View>(_ view: T) -> Bool {
       return NSViewAsserter.contains(self, view)
    }
 }
-
 #endif

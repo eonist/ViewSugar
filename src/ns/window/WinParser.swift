@@ -9,33 +9,33 @@ class WinParser {
     * NOTE: to manage the windows: app.windowWithWindowNumber(w.windowNumber)
     * EXAMPLE: let app:NSApplication = aNotification.object as! NSApplication//then use the app in this method
     */
-   static func describeWindows(_ app:NSApplication){
+   static func describeWindows(_ app: NSApplication) {
       Swift.print("app.windows.count: " + "\(app.windows.count)")
-      app.windows.forEach{ win in
+      app.windows.forEach { win in
          print("windowNumber: " + "\(win.windowNumber)")
          app.window(withWindowNumber: win.windowNumber)//this is how you can manage windows
       }
    }
    /**
-    * NOTE: Returns the window height (including the titleBar height)
-    * NOTE: To return window height not including the titleBar height, the use window!.frame.height
-    * NOTE: This method can also be used if you diff this method and the frame.height to get the titlebar height
-    * NOTE: To get the width of a window yu can use: window!.frame.width
+    * - Note: Returns the window height (including the titleBar height)
+    * - Note: To return window height not including the titleBar height, the use window!.frame.height
+    * - Note: This method can also be used if you diff this method and the frame.height to get the titlebar height
+    * - Note: To get the width of a window yu can use: window!.frame.width
     */
-   static func height(_ window:NSWindow)->CGFloat{
-      return NSWindow.contentRect(forFrameRect:window.frame, styleMask: window.styleMask).height
+   static func height(_ window: NSWindow) -> CGFloat {
+      return NSWindow.contentRect(forFrameRect: window.frame, styleMask: window.styleMask).height
    }
    /**
     * New
     */
    static func width(_ window: NSWindow) -> CGFloat {
-      return NSWindow.contentRect(forFrameRect:window.frame, styleMask: window.styleMask).width
+      return NSWindow.contentRect(forFrameRect: window.frame, styleMask: window.styleMask).width
    }
    /**
     * Example: WinParser.size(NSApp.windows.first!)//CGSize(400,600) etc
     */
-   static func size(_ window:NSWindow) -> CGSize {
-      return CGSize(width(window),height(window))
+   static func size(_ window: NSWindow) -> CGSize {
+      return .init(width: width(window), height: height(window))
    }
    /**
     * New
@@ -52,7 +52,7 @@ class WinParser {
     */
    static func firstWindow<T>(_ type: T.Type, _ strict: Bool = false) -> T? {
       return NSApp.windows.first {
-         ($0 as? T != nil && !strict) || (type is AnyClass && $0.isMember(of:type as! AnyClass))
+         ($0 as? T != nil && !strict) || (type is AnyClass && $0.isMember(of: type as! AnyClass))
       } as? T
    }
    /**
@@ -60,18 +60,14 @@ class WinParser {
     * ## EXAMPLES: windowsOfType(CustomWindow.self)
     */
    static func windowsOfType<T>(_ type: T.Type) -> [T] {
-      return NSApp.windows.lazy.filter() { $0 as? T != nil }.map { $0 as! T }
+      return NSApp.windows.lazy.filter { $0 as? T != nil }.map { $0 as! T }
    }
    /**
     * Returns the front most window in NSApp of a spedific class or protocol type
     */
-   static func frontMostWinOfType<T: NSWindow>(_ type: T.Type)-> T? {
-      var windows: [T] = NSApp.windows.lazy.filter() { win in
-         win as? T != nil
-         }.map {
-            $0 as! T
-         }
-      windows.sort { (a, b) -> Bool in return a.orderedIndex > b.orderedIndex}
+   static func frontMostWinOfType<T: NSWindow>(_ type: T.Type) -> T? {
+      var windows: [T] = NSApp.windows.lazy.filter { win in win as? T != nil }.map { $0 as! T }
+      windows.sort { a, b -> Bool in a.orderedIndex > b.orderedIndex }
       return !windows.isEmpty ? windows[0] : nil
    }
    /**
@@ -79,14 +75,14 @@ class WinParser {
     * NOTE: there are also: win.isAccessibilityHidden(),isAccessibilityMinimized(),isAccessibilityModal(),isAccessibilityExpanded()
     */
    static func focusedWindow() -> NSWindow? {
-      return Utils.performAction(NSApp.windows, { $0.isAccessibilityFocused() })
+      return Utils.performAction(NSApp.windows) { $0.isAccessibilityFocused() }
    }
 }
 private class Utils {
    /**
     * NOTE: Reducing for-loops is a great way to maintain readability and maintain code modularity. Here is a trick were we use closure blocks to encapsulate the method call. The for loop is the same but the method call is different. This approach is great when you need the code within the for-loop to be the same but you want to have the code within different methods to be different
     */
-   static func performAction(_ windows:[NSWindow], _ action:(NSWindow)->Bool)->NSWindow? {
+   static func performAction(_ windows: [NSWindow], _ action: (NSWindow) -> Bool) -> NSWindow? {
       return windows.first { action($0) }
    }
 }

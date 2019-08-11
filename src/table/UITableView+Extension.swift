@@ -1,25 +1,25 @@
 #if os(iOS)
 import UIKit
 
-extension UITableViewDataSource where Self:UITableView {
+extension UITableViewDataSource where Self: UITableView {
     /**
      * Returns all ells in a table
      * ## Examples:
      * tableView.cells // array of cells in a tableview
      */
-    var cells:[UITableViewCell] {
-        return (0..<self.numberOfSections).indices.map { (sectionIndex:Int) -> [UITableViewCell] in
-            return (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap{ (rowIndex:Int) -> UITableViewCell? in
-                return self.cellForRow(at: IndexPath(row: rowIndex, section: sectionIndex))
+    var cells: [UITableViewCell] {
+        return (0..<self.numberOfSections).indices.map { (sectionIndex: Int) -> [UITableViewCell] in
+            (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap { (rowIndex: Int) -> UITableViewCell? in
+               self.cellForRow(at: IndexPath(row: rowIndex, section: sectionIndex))
             }
-        }.flatMap{$0}
+        }.flatMap { $0 }
     }
 }
 #endif
 
 /**
  * Returns totalRowHeight (height of all rows)
- * TODO: ⚠️️ Upgrade this with NumberOfSections instead
+ * Fixme: ⚠️️ Upgrade this with NumberOfSections instead
  */
 //    var totalRowHeight:CGFloat {
 //        return sections.enumerated().map { arg -> [(section:Int,row:Int)] in

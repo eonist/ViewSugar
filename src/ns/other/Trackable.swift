@@ -1,7 +1,7 @@
 #if os(OSX)
 import Cocoa
 
-protocol Trackable: class {
+protocol Trackable: AnyObject {
    var trackingArea: NSTrackingArea? { get set }
    func removeTrackingArea(_ trackingArea: NSTrackingArea)
    func addTrackingArea(_ trackingArea: NSTrackingArea)

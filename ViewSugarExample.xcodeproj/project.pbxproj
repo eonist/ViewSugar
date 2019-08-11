@@ -23,7 +23,6 @@
 		F1D81DD222DCAC96008F842A /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB322DCAC96008F842A /* NSView+Extension.swift */; };
 		F1D81DD322DCAC96008F842A /* DepthModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB622DCAC96008F842A /* DepthModifier.swift */; };
 		F1D81DD422DCAC96008F842A /* NSTouchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB822DCAC96008F842A /* NSTouchExtensions.swift */; };
-		F1D81DD522DCAC96008F842A /* GestureHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DB922DCAC96008F842A /* GestureHUD.swift */; };
 		F1D81DD622DCAC96008F842A /* GestureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBA22DCAC96008F842A /* GestureUtils.swift */; };
 		F1D81DD722DCAC96008F842A /* InteractiveViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBB22DCAC96008F842A /* InteractiveViewExtensions.swift */; };
 		F1D81DD822DCAC96008F842A /* MouseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81DBD22DCAC96008F842A /* MouseUtils.swift */; };
@@ -91,7 +90,6 @@
 		F1D81DB322DCAC96008F842A /* NSView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
 		F1D81DB622DCAC96008F842A /* DepthModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthModifier.swift; sourceTree = "<group>"; };
 		F1D81DB822DCAC96008F842A /* NSTouchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTouchExtensions.swift; sourceTree = "<group>"; };
-		F1D81DB922DCAC96008F842A /* GestureHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureHUD.swift; sourceTree = "<group>"; };
 		F1D81DBA22DCAC96008F842A /* GestureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureUtils.swift; sourceTree = "<group>"; };
 		F1D81DBB22DCAC96008F842A /* InteractiveViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveViewExtensions.swift; sourceTree = "<group>"; };
 		F1D81DBD22DCAC96008F842A /* MouseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MouseUtils.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				F1D81DB822DCAC96008F842A /* NSTouchExtensions.swift */,
-				F1D81DB922DCAC96008F842A /* GestureHUD.swift */,
 				F1D81DBA22DCAC96008F842A /* GestureUtils.swift */,
 			);
 			path = touch;
@@ -533,7 +530,6 @@
 				F1D81DD722DCAC96008F842A /* InteractiveViewExtensions.swift in Sources */,
 				F1D81DE122DCAC96008F842A /* NSViewModifier.swift in Sources */,
 				F1D81DDE22DCAC96008F842A /* InteractiveViewUtils.swift in Sources */,
-				F1D81DD522DCAC96008F842A /* GestureHUD.swift in Sources */,
 				F1D81DD122DCAC96008F842A /* NSViewParser.swift in Sources */,
 				F1D81DE922DCAC96008F842A /* CALayer+Extension.swift in Sources */,
 				F1D81DD422DCAC96008F842A /* NSTouchExtensions.swift in Sources */,

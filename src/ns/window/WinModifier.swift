@@ -9,7 +9,7 @@ class WinModifier {
     * Positions a window to PARAM: position
     * - CAUTION: ⚠️️ the coordinate space of the y is flipped, so you have to substract the screen height etc before passing the position point
     */
-   static func position(_ win: NSWindow,  position: CGPoint) {
+   static func position(_ win: NSWindow, position: CGPoint) {
       win.setFrameOrigin(position)
       //win.setFrame(NSRect(position.x,position.y,win.frame.width,win.frame.height), display: true)/*<--unsure what the display var does*/
    }
@@ -23,10 +23,11 @@ class WinModifier {
    }
    /**
     * NOTE: This method is great when you want to find the correct alignment for an NSWindow before is initiated
+    * - Fixme: you need to import Spatial for this
     */
-   static func alignPoint(_ winSize: CGSize, canvasAlignment: Alignment, viewAlignment: Alignment, offset: CGPoint = CGPoint(x: 0, y: 0)) -> CGPoint {
-      return Align.alignmentPoint(CGSize(width: winSize.width, height: winSize.height), canvasSize: CGSize(NSScreen.main!.visibleFrame.width,NSScreen.main!.visibleFrame.height), canvasAlign: canvasAlignment, objectAlign: viewAlignment, offset: offset)
-   }
+//   static func alignPoint(_ winSize: CGSize, canvasAlignment: Alignment, viewAlignment: Alignment, offset: CGPoint = CGPoint(x: 0, y: 0)) -> CGPoint {
+//      return Align.alignmentPoint(CGSize(width: winSize.width, height: winSize.height), canvasSize: CGSize(NSScreen.main!.visibleFrame.width, NSScreen.main!.visibleFrame.height), canvasAlign: canvasAlignment, objectAlign: viewAlignment, offset: offset)
+//   }
 }
 
 #endif

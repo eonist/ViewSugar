@@ -10,29 +10,30 @@ extension NSTouch {
    func pos(_ view: NSView) -> CGPoint {
       let w = view.frame.size.width
       let h = view.frame.size.height
-      let touchPos: CGPoint = CGPoint(self.normalizedPosition.x,1 + (self.normalizedPosition.y * -1))/*flip the touch coordinates*/
+      let touchPos: CGPoint = .init(self.normalizedPosition.x, 1 + (self.normalizedPosition.y * -1))/*flip the touch coordinates*/
       let deviceSize: CGSize = self.deviceSize
-      let deviceRatio: CGFloat = deviceSize.width/deviceSize.height/*find the ratio of the device*/
-      let viewRatio: CGFloat = w/h
+      let deviceRatio: CGFloat = deviceSize.width / deviceSize.height /*find the ratio of the device*/
+      let viewRatio: CGFloat = w / h
       var touchArea: CGSize = .init(width: w, height: h)
       /*Unifor-shrink the device to the view frame*/
       if deviceRatio > viewRatio {/*device is wider than view*/
-         touchArea.height = h/viewRatio
+         touchArea.height = h / viewRatio
          touchArea.width = w
       }else if deviceRatio < viewRatio {/*view is wider than device*/
          touchArea.height = h
          touchArea.width = w / deviceRatio
       }/*else ratios are the same*/
-      let touchAreaPos:CGPoint = CGPoint((w - touchArea.width) / 2, (h - touchArea.height) / 2)/*we center the touchArea to the View*/
+      let touchAreaPos: CGPoint = .init(x: (w - touchArea.width) / 2, y: (h - touchArea.height) / 2)/*we center the touchArea to the View*/
       return CGPoint(touchPos.x * touchArea.width, touchPos.y * touchArea.height) + touchAreaPos
    }
 }
 extension NSTouch.Phase {
    /**
     * Great when logging phaseType
-    * TODO: Would it be possible to return .began.rawValue instead?
+    * - Fixme: Would it be possible to return .began.rawValue instead?
+    * - Fixme: Also use switch here
     */
-   var type:String {
+   var type: String {
       if self == .began {
          return "began"
       } else if self ==  .moved {

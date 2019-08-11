@@ -14,10 +14,10 @@ class Win: NSWindow, NSApplicationDelegate, NSWindowDelegate {
     * - Fixme: ⚠️️ Implement the max and min sizes into the constructor arguments
     * - Fixme: ⚠️️ Implement x and y for the win on init (This is tricky to get right, carefull)
     */
-   required init(_ width: CGFloat = 600,_ height: CGFloat = 400){/*required prefix in the init is so that instances can be created via factory design patterns*/
+   required init(_ width: CGFloat = 600, _ height: CGFloat = 400) {/*required prefix in the init is so that instances can be created via factory design patterns*/
       let styleMask: NSWindow.StyleMask = [NSWindow.StyleMask.borderless, NSWindow.StyleMask.resizable, NSWindow.StyleMask.titled, NSWindow.StyleMask.closable, NSWindow.StyleMask.miniaturizable]/*represents the window attributes*/
-      let rect: NSRect = NSRect(x: 0, y: 0, width: width, height: height)
-      super.init(contentRect: rect, styleMask:styleMask , backing: NSWindow.BackingStoreType.buffered, defer: false)//NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
+      let rect: NSRect = .init(x: 0, y: 0, width: width, height: height)
+      super.init(contentRect: rect, styleMask: styleMask, backing: NSWindow.BackingStoreType.buffered, defer: false)//NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
       //self.backgroundColor = NSColor.clear/*Sets the window background color*/
       self.makeKeyAndOrderFront(self)/*This moves the window to front and makes it key, should also be settable from within the win itself, test this*/
       self.hasShadow = true/*you have to set this to true if you want a shadow when using the borderlessmask setting*/
@@ -36,7 +36,7 @@ class Win: NSWindow, NSApplicationDelegate, NSWindowDelegate {
    /**
     * We use the resolveSkin method since this is the common way to implement functionality in this framework
     */
-   func resolveView(){
+   func resolveView() {
       Swift.print("Win.resolveView()")
       self.contentView = WinView(frame)/*Sets the mainview of the window*/
    }
@@ -54,5 +54,4 @@ class WinView: InteractiveView {
    }
    required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
-
 #endif
