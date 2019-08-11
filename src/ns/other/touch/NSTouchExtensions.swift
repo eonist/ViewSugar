@@ -5,72 +5,71 @@ extension NSTouch {
    /**
     * Returns the relative position of the touch to the view
     * NOTE: the normalizedTouch is the relative location on the trackpad. values range from 0-1. And are y-flipped
-    * TODO: ⚠️️ debug if the touch area is working with a rect with a green stroke
+    * - Fixme: ⚠️️ debug if the touch area is working with a rect with a green stroke
     */
-   func pos(_ view:NSView) -> CGPoint{
+   func pos(_ view: NSView) -> CGPoint {
       let w = view.frame.size.width
       let h = view.frame.size.height
-      let touchPos:CGPoint = CGPoint(self.normalizedPosition.x,1 + (self.normalizedPosition.y * -1))/*flip the touch coordinates*/
-      let deviceSize:CGSize = self.deviceSize
-      let deviceRatio:CGFloat = deviceSize.width/deviceSize.height/*find the ratio of the device*/
-      let viewRatio:CGFloat = w/h
-      var touchArea:CGSize = CGSize(w,h)
+      let touchPos: CGPoint = CGPoint(self.normalizedPosition.x,1 + (self.normalizedPosition.y * -1))/*flip the touch coordinates*/
+      let deviceSize: CGSize = self.deviceSize
+      let deviceRatio: CGFloat = deviceSize.width/deviceSize.height/*find the ratio of the device*/
+      let viewRatio: CGFloat = w/h
+      var touchArea: CGSize = .init(width: w, height: h)
       /*Unifor-shrink the device to the view frame*/
       if deviceRatio > viewRatio {/*device is wider than view*/
          touchArea.height = h/viewRatio
          touchArea.width = w
       }else if deviceRatio < viewRatio {/*view is wider than device*/
          touchArea.height = h
-         touchArea.width = w/deviceRatio
+         touchArea.width = w / deviceRatio
       }/*else ratios are the same*/
-      let touchAreaPos:CGPoint = CGPoint((w - touchArea.width)/2,(h - touchArea.height)/2)/*we center the touchArea to the View*/
-      return CGPoint(touchPos.x * touchArea.width,touchPos.y * touchArea.height) + touchAreaPos
+      let touchAreaPos:CGPoint = CGPoint((w - touchArea.width) / 2, (h - touchArea.height) / 2)/*we center the touchArea to the View*/
+      return CGPoint(touchPos.x * touchArea.width, touchPos.y * touchArea.height) + touchAreaPos
    }
 }
-extension NSTouch.Phase{
+extension NSTouch.Phase {
    /**
     * Great when logging phaseType
     * TODO: Would it be possible to return .began.rawValue instead?
     */
-   var type:String{
+   var type:String {
       if self == .began {
          return "began"
-      }else if self ==  .moved {
+      } else if self ==  .moved {
          return "moved"
-      }else if self ==  .stationary {
+      } else if self ==  .stationary {
          return "stationary"
-      }else if self ==  .ended {
+      } else if self ==  .ended {
          return "ended"
-      }else if self ==  .cancelled {
+      } else if self ==  .cancelled {
          return "cancelled"
-      }else if self ==  .touching {
+      } else if self ==  .touching {
          return "touching"
-      }else{
+      } else {
          return "no match"
       }
    }
 }
 /**
- * TODO: ⚠️️ Would it be possible to return .began.rawValue instead?
+ * - Fixme: ⚠️️ Would it be possible to return .began.rawValue instead?
  */
-extension NSEvent.Phase{
-   var type:String{
+extension NSEvent.Phase {
+   var type: String {
       if self == .began {
          return "began"
-      }else if self == .stationary {
+      } else if self == .stationary {
          return "stationary"
-      }else if self == .changed {
+      } else if self == .changed {
          return "changed"
-      }else if self == .ended {
+      } else if self == .ended {
          return "ended"
-      }else if self == .cancelled {
+      } else if self == .cancelled {
          return "cancelled"
-      }else if self == .mayBegin {
+      } else if self == .mayBegin {
          return "mayBegin"
-      }else{
+      } else {
          return "no match"
       }
    }
 }
-
 #endif
