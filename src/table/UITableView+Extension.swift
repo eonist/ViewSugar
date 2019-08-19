@@ -3,7 +3,7 @@ import UIKit
 
 extension UITableViewDataSource where Self: UITableView {
     /**
-     * Returns all ells in a table
+     * Returns all cells in a table
      * ## Examples:
      * tableView.cells // array of cells in a tableview
      */
@@ -14,6 +14,20 @@ extension UITableViewDataSource where Self: UITableView {
             }
         }.flatMap { $0 }
     }
+   /**
+    * Returns all IndexPath's in a table
+    * ## Examples:
+    * table.indexPaths.forEach {
+    *    selectRow(at: $0, animated: true, scrollPosition: .none) // selects all cells
+    * }
+    */
+   public var indexPaths: [IndexPath] {
+      return (0..<self.numberOfSections).indices.map { (sectionIndex: Int) -> [IndexPath] in
+         (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap { (rowIndex: Int) -> IndexPath? in
+            IndexPath(row: rowIndex, section: sectionIndex)
+         }
+         }.flatMap { $0 }
+   }
 }
 #endif
 
