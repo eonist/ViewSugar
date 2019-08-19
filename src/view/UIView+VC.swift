@@ -23,22 +23,23 @@ extension UIView {
    /**
     * Returns a ViewController of a class Kind
     * ## Examples:
-    * UIView.vc(vcKind: CustomViewController.self)//ref to an instance of CustomViewController
+    * UIView.vc(vcKind: CustomViewController.self) // ref to an instance of CustomViewController
     */
    public static func vc<T: UIViewController>(vcKind: T.Type? = nil) -> T? {
       guard let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window else { return nil }
       if let vc = window?.rootViewController as? T {
          return vc
-      }else if let vc = window?.rootViewController?.presentedViewController as? T {
+      } else if let vc = window?.rootViewController?.presentedViewController as? T {
          return vc
-      }else if let vc = window?.rootViewController?.children {
+      } else if let vc = window?.rootViewController?.children {
          return vc.lazy.compactMap { $0 as? T }.first
       }
       return nil
    }
    /**
     * Returns the top most viewController
-    * - Fixme: ⚠️️ make this a var?
+    * ## Examples:
+    * self.topMostController()?.view.backgroundColor = .green
     */
    public static func topMostController() -> UIViewController? {
       var topController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
@@ -49,6 +50,8 @@ extension UIView {
    }
    /**
     * Returns parent viewController
+    * ## Examples:
+    * self.parentViewController?.view.backgroundColor = .green
     */
    public var parentViewController: UIViewController? {
       var parentResponder: UIResponder? = self

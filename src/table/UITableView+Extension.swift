@@ -7,7 +7,7 @@ extension UITableViewDataSource where Self: UITableView {
      * ## Examples:
      * tableView.cells // array of cells in a tableview
      */
-    var cells: [UITableViewCell] {
+    public var cells: [UITableViewCell] {
         return (0..<self.numberOfSections).indices.map { (sectionIndex: Int) -> [UITableViewCell] in
             (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap { (rowIndex: Int) -> UITableViewCell? in
                self.cellForRow(at: IndexPath(row: rowIndex, section: sectionIndex))
