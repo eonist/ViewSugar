@@ -1,10 +1,13 @@
 #if os(OSX)
 import Cocoa
 /**
- * - Fixme: make a method with the NSView.sortSubviewsUsingFunction method
+ * - Fixme: ⚠️️ make a method with the NSView.sortSubviewsUsingFunction method
  * - NOTE: to set position use .point = CGPoint()
  */
 class NSViewModifier {
+   /**
+    * - Fixme: ⚠️️ Write doc
+    */
    static func applyColor(_ view: NSView, _ nsFillColor: NSColor = .clear, _ nsLineColor: NSColor = .clear, _ lineWidth: Int = 0) {
       let cgFillColor: CGColor = CGColorParser.cgColor(nsFillColor)
       if nsFillColor != .clear {/*clearColor: 0.0 white, 0.0 alpha */
