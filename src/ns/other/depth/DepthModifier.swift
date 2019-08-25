@@ -15,7 +15,6 @@ class DepthModifier {
          container.addSubviewAt(children[indices[i]], i) // <--apparently you don't need to remove a view before adding it again, animation-wise it may be better to remove, did get some ghosting on the stroke*///Fixme: ideally we would use sortSubviewsUsingFunction. But there are no clear examples of anyone using this method in swift yet. It is possibe though, but will require some research
       }
    }
-   public class DepthModifier {
    /**
     * bring subView to the front in containerView
     * ## Examples:
@@ -23,7 +22,7 @@ class DepthModifier {
     */
    public static func bringSubviewToFront(parent: NSView, child: NSView) {
       var theView = child
-      parent.sortSubviews({(viewA, viewB, rawPointer) in
+      parent.sortSubviews({ viewA, viewB, rawPointer in
          let view = rawPointer?.load(as: NSView.self)
          switch view {
          case viewA:
@@ -46,6 +45,8 @@ extension NSView {
       DepthModifier.bringSubviewToFront(parent: self, child: view)
    }
 }
+
+
 //forward
 //backward
 //swap
