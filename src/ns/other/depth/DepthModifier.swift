@@ -1,7 +1,7 @@
 #if os(OSX)
 import Cocoa
 
-class DepthModifier {
+public class DepthModifier {
    /**
     * Arranges children in PARAM: container according to PARAM: indices
     * - Note: indices contain an array of indec values that is in a spessific order, so if the first index is 6 that means the instance at depth 6 will now have depth 0

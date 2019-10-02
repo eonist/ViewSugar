@@ -10,24 +10,24 @@ extension UITableViewDataSource where Self: UITableView {
     public var cells: [UITableViewCell] {
         return (0..<self.numberOfSections).indices.map { (sectionIndex: Int) -> [UITableViewCell] in
             (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap { (rowIndex: Int) -> UITableViewCell? in
-               self.cellForRow(at: IndexPath(row: rowIndex, section: sectionIndex))
+                self.cellForRow(at: IndexPath(row: rowIndex, section: sectionIndex))
             }
         }.flatMap { $0 }
     }
-   /**
-    * Returns all IndexPath's in a table
-    * ## Examples:
-    * table.indexPaths.forEach {
-    *    selectRow(at: $0, animated: true, scrollPosition: .none) // selects all cells
-    * }
-    */
-   public var indexPaths: [IndexPath] {
-      return (0..<self.numberOfSections).indices.map { (sectionIndex: Int) -> [IndexPath] in
-         (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap { (rowIndex: Int) -> IndexPath? in
-            IndexPath(row: rowIndex, section: sectionIndex)
-         }
-         }.flatMap { $0 }
-   }
+    /**
+     * Returns all IndexPath's in a table
+     * ## Examples:
+     * table.indexPaths.forEach {
+     *    selectRow(at: $0, animated: true, scrollPosition: .none) // selects all cells
+     * }
+     */
+    public var indexPaths: [IndexPath] {
+        return (0..<self.numberOfSections).indices.map { (sectionIndex: Int) -> [IndexPath] in
+            (0..<self.numberOfRows(inSection: sectionIndex)).indices.compactMap { (rowIndex: Int) -> IndexPath? in
+                IndexPath(row: rowIndex, section: sectionIndex)
+            }
+        }.flatMap { $0 }
+    }
 }
 #endif
 
