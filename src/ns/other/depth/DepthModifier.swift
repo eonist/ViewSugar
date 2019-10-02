@@ -26,11 +26,11 @@ public class DepthModifier {
          let view = rawPointer?.load(as: NSView.self)
          switch view {
          case viewA:
-            return ComparisonResult.orderedDescending
+            return .orderedDescending
          case viewB:
-            return ComparisonResult.orderedAscending
+            return .orderedAscending
          default:
-            return ComparisonResult.orderedSame
+            return .orderedSame
          }
       }, context: &theView)
    }
