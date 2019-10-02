@@ -18,7 +18,7 @@ public class DepthModifier {
    /**
     * bring subView to the front in containerView
     * ## Examples:
-    * bringSubviewToFront(parent:containerView, child: subView)
+    * bringSubviewToFront(parent: containerView, child: subView)
     */
    public static func bringSubviewToFront(parent: NSView, child: NSView) {
       var theView = child
