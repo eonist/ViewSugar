@@ -5,7 +5,7 @@ import UIKit
  */
 extension UIView {
    /**
-      * Traverses the entire UIView hirearchy and collects views that are of speccific PARAM: type
+      * Traverses the entire UIView hirearchy downwards and collects views that are of speccific PARAM: type
       * - Fixme: ⚠️️ this can be written more elegantly with flatMap
       */
      func descendants<T>(type: T.Type? = nil) -> [T] {
@@ -24,6 +24,7 @@ extension UIView {
     * Returns a ViewController of a class Kind
     * ## Examples:
     * UIView.vc(vcKind: CustomViewController.self) // ref to an instance of CustomViewController
+    * - Fixme: move out of this extension
     */
    public static func vc<T: UIViewController>(vcKind: T.Type? = nil) -> T? {
       guard let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window else { return nil }
@@ -40,6 +41,7 @@ extension UIView {
     * Returns the top most viewController
     * ## Examples:
     * self.topMostController()?.view.backgroundColor = .green
+    * - Fixme: move out of this extension
     */
    public static func topMostController() -> UIViewController? {
       var topController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
