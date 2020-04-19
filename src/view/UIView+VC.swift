@@ -1,5 +1,4 @@
 import UIKit
-
 /**
  * Controller related
  */
@@ -24,19 +23,19 @@ extension UIView {
     * Returns a ViewController of a class Kind
     * ## Examples:
     * UIView.vc(vcKind: CustomViewController.self) // ref to an instance of CustomViewController
-    * - Fixme: move out of this extension
+    * - Fixme: ⚠️️ move out of this extension
     */
-   public static func vc<T: UIViewController>(vcKind: T.Type? = nil) -> T? {
-      guard let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window else { return nil }
-      if let vc = window?.rootViewController as? T {
-         return vc
-      } else if let vc = window?.rootViewController?.presentedViewController as? T {
-         return vc
-      } else if let vc = window?.rootViewController?.children {
-         return vc.lazy.compactMap { $0 as? T }.first
-      }
-      return nil
-   }
+    public static func vc<T: UIViewController>(vcKind: T.Type? = nil) -> T? {
+       guard let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window else { return nil }
+       if let vc = window?.rootViewController as? T {
+          return vc
+       } else if let vc = window?.rootViewController?.presentedViewController as? T {
+          return vc
+       } else if let vc = window?.rootViewController?.children {
+          return vc.lazy.compactMap { $0 as? T }.first
+       }
+       return nil
+    }
    /**
     * Returns the top most viewController
     * ## Examples:
