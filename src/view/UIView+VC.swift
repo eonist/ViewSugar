@@ -86,3 +86,26 @@ extension UIView {
       return controller.navigationController
    }
 }
+/**
+ * Transition to viewcontrollers
+ * - Note: make sure ViewControllers also add: override var modalPresentationStyle: UIModalPresentationStyle { get { return .fullScreen } set { super.modalPresentationStyle = newValue } } // forces the VC to be regular VC and not pop-up-from-bottom which is standard it seems
+ */
+extension UIView {
+   typealias OnTransitionComplete = () -> Void
+   static let defaultOnTransitionComplete: OnTransitionComplete = {}
+   /**
+    * Transition to other ViewController
+    */
+   func transition(toVC: UIViewController, dir: CATransitionSubtype = .fromRight, onComplete: @escaping OnTransitionComplete = defaultOnTransitionComplete) {
+      self.window?.layer.add(UIViewController.transition(direction: dir), forKey: kCATransition) // Attach right to left transition animation
+      let vc: ThirdVC = .init()
+      self.parentViewController?.present(vc, animated: false) { onComplete() }
+   }
+   /**
+    * Transition back
+    */
+   func transitionBack(dir: CATransitionSubtype = .fromLeft, onComplete: @escaping OnTransitionComplete = defaultOnTransitionComplete) {
+      self.window?.layer.add(UIViewController.transition(direction: dir), forKey: kCATransition) // Attach right to left transition animation
+      self.parentViewController?.dismiss(animated: false) { onComplete() }
+   }
+}
