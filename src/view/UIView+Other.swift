@@ -9,11 +9,12 @@ extension UIView {
     * - Important: ⚠️️ if you get the "invalid context 0x0" error, make sure your View has a frame. view.bounds must not be .zerp
     */
    public var snapShot: UIImage? {
-      UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
-      self.drawHierarchy(in: self.frame, afterScreenUpdates: true)
-      let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-      UIGraphicsEndImageContext()
-      return image
+      fatalError("⚠️️ out of order use: https://stackoverflow.com/a/52549461/5389500")
+      // UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
+      // self.drawHierarchy(in: self.frame, afterScreenUpdates: true)
+      // let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+      // UIGraphicsEndImageContext()
+      // return image
    }
    /**
     * Returns rotation of view

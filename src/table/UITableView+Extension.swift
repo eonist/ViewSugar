@@ -35,20 +35,34 @@ extension UITableViewDataSource where Self: UITableView {
       (0..<numberOfSections).indices.map { numberOfRows(inSection: $0) }.reduce(0, +)
    }
    /**
-    * UITableViewDelegate extension
+   * Returns a cells in table
+   * - Note: Unlike native cell(for index) or visibleCells calls, this call wont break/complain even when called before the cells are available
+   */
+   var availableCells: [UITableViewCell] {
+      self.subviews.compactMap { $0 as? UITableViewCell }
+   }
+   /**
+   * Returns a cell in table for indexpath
+   * - Note: Unlike native cell(for index) or visibleCells calls, this call wont break/complain even when called before the cells are available
+   */
+   func availableCell(indexPath: IndexPath) -> UITableViewCell? {
+      availableCells.first { self.indexPath(for: $0) == indexPath }
+   }
+}
+/**
+ * UITableViewDelegate extension
+ */
+extension UITableViewDelegate where Self: UITableView {
+   /**
+    * Returns total height of all rows
+    * - Important: ⚠️️ in the heightForRowAt class, don't use cellForRow, as the cell isn't made yet, probably shouldn't put cellForRow in that method anyways
     */
-   extension UITableViewDelegate where Self: UITableView {
-      /**
-       * Returns total height of all rows
-       * - Important: ⚠️️ in the heightForRowAt class, don't use cellForRow, as the cell isn't made yet, probably shouldn't put cellForRow in that method anyways
-       */
-      var totalRowHeight: CGFloat {
-         (0..<self.numberOfSections).indices.flatMap { sectionIdx in
-            (0..<self.numberOfRows(inSection: sectionIdx)).indices.map { rowIdx in
-               self.tableView!(self, heightForRowAt: IndexPath.init(row: rowIdx, section: sectionIdx))
-            }
-         }.reduce(0, +)
-      }
+   var totalRowHeight: CGFloat {
+      (0..<self.numberOfSections).indices.flatMap { sectionIdx in
+         (0..<self.numberOfRows(inSection: sectionIdx)).indices.map { rowIdx in
+            self.tableView!(self, heightForRowAt: IndexPath.init(row: rowIdx, section: sectionIdx))
+         }
+      }.reduce(0, +)
    }
 }
 #endif
