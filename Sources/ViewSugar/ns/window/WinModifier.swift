@@ -27,7 +27,7 @@ class WinModifier {
     * - Fixme: you need to import Spatial for this
     */
    static func alignPoint(_ winSize: CGSize, canvasAlignment: Alignment, viewAlignment: Alignment, offset: CGPoint = CGPoint(x: 0, y: 0)) -> CGPoint {
-      return Align.alignmentPoint(objectSize: CGSize(width: winSize.width, height: winSize.height), canvasSize: CGSize(NSScreen.main!.visibleFrame.width, NSScreen.main!.visibleFrame.height), canvasAlign: canvasAlignment, objectAlign: viewAlignment, offset: offset)
+      return Align.alignmentPoint(objectSize: CGSize(width: winSize.width, height: winSize.height), canvasSize: CGSize(width: NSScreen.main!.visibleFrame.width, height: NSScreen.main!.visibleFrame.height), canvasAlign: canvasAlignment, objectAlign: viewAlignment, offset: offset)
    }
 }
 #endif

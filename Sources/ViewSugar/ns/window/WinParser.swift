@@ -41,7 +41,8 @@ class WinParser {
     * New
     */
    static func topLeft(_ window: NSWindow) -> CGPoint {
-      return window.frame.topLeft
+      fatalError("⚠️️ out of order")
+//      return window.frame.topLeft
    }
    /**
     * Returns the first window in NSApp of a spedific class or protocol type

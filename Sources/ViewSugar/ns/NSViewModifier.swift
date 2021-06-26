@@ -9,15 +9,16 @@ class NSViewModifier {
     * - Fixme: ⚠️️ Write doc
     */
    static func applyColor(_ view: NSView, _ nsFillColor: NSColor = .clear, _ nsLineColor: NSColor = .clear, _ lineWidth: Int = 0) {
-      let cgFillColor: CGColor = CGColorParser.cgColor(nsFillColor)
-      if nsFillColor != .clear {/*clearColor: 0.0 white, 0.0 alpha */
-         view.layer!.backgroundColor = cgFillColor
-      }
-      let cgLineColor: CGColor = CGColorParser.cgColor(nsLineColor)
-      if nsLineColor != .clear {/*clearColor: 0.0 white, 0.0 alpha */
-         view.layer!.borderColor = cgLineColor
-         view.layer!.borderWidth = CGFloat(lineWidth)
-      }
+      fatalError("⚠️️ out of order")
+//      let cgFillColor: CGColor = CGColorParser.cgColor(nsFillColor)
+//      if nsFillColor != .clear {/*clearColor: 0.0 white, 0.0 alpha */
+//         view.layer!.backgroundColor = cgFillColor
+//      }
+//      let cgLineColor: CGColor = CGColorParser.cgColor(nsLineColor)
+//      if nsLineColor != .clear {/*clearColor: 0.0 white, 0.0 alpha */
+//         view.layer!.borderColor = cgLineColor
+//         view.layer!.borderWidth = CGFloat(lineWidth)
+//      }
    }
    /**
     * Removes all children in an NSView
@@ -47,8 +48,8 @@ class NSViewModifier {
       }
       return subView
    }
-   static func removeSubviewAt(_ view: SView, _ at: Int) {
-      if let item = view.subviews[safe: at] { item.removeFromSuperview() }
+   static func removeSubviewAt(_ view: NSView, _ at: Int) {
+      if at < view.subviews.count { view.subviews[at].removeFromSuperview() }
    }
    /**
     * - Note: Removes in the backward direction over the array

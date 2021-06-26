@@ -89,7 +89,7 @@ extension NSView {
       var offset: CGPoint = .init()
       var parent: NSView? = self.superview
       while parent?.superview != nil {
-         offset += parent!.layer!.position
+         offset = CGPoint.init(x: offset.x + parent!.layer!.position.x, y: offset.y + parent!.layer!.position.y)
          parent = parent?.superview
       }
       return offset
@@ -100,8 +100,8 @@ extension NSView {
    //swift 3 update: The compiler complaints if the values x,y are used, you could try to use upper-case X and Y?!?, or implement x,y in classes such as BaseGraphic and IElement etc
    var X: CGFloat { get { frame.origin.x }set { frame.origin.x = newValue } }
    var Y: CGFloat { get { frame.origin.y }set { frame.origin.y = newValue } }
-   var w: CGFloat { get { frame.width } set { frame.width = newValue } }//aperantly .width is used too may places, you need to refactor it out first, same with height
-   var h: CGFloat { get { frame.height } set { frame.height = newValue } }
+   var w: CGFloat { get { frame.width } set { frame.size.width = newValue } }//aperantly .width is used too may places, you need to refactor it out first, same with height
+   var h: CGFloat { get { frame.height } set { frame.size.height = newValue } }
    var idx: Int { self.superview!.indexOf(self) } /*returns the index of a nsview*/
    /**
     * DEPRECATED

@@ -1,7 +1,6 @@
 #if os(OSX)
 import Cocoa
 
-
 class CALayerModifier {
    /**
     * New
@@ -9,9 +8,10 @@ class CALayerModifier {
     */
    static func rotate(_ layer: CALayer, _ rotation: CGFloat, _ pivot: CGPoint) {
       //Swift.print("rotate via pivot pivot: \(pivot)")
-      let radians: CGFloat = rotation / 180.0 * CGFloat.pi
-      let transform = CGTransform.rotateAroundPoint(CGAffineTransform.identity, radians, pivot)
-      layer.setAffineTransform(transform)
+      fatalError("⚠️️ out of order")
+//      let radians: CGFloat = rotation / 180.0 * CGFloat.pi
+//      let transform = CGTransform.rotateAroundPoint(CGAffineTransform.identity, radians, pivot)
+//      layer.setAffineTransform(transform)
    }
 }
 #endif

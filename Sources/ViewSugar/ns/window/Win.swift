@@ -38,7 +38,8 @@ class Win: NSWindow, NSApplicationDelegate, NSWindowDelegate {
     */
    func resolveView() {
       Swift.print("Win.resolveView()")
-      self.contentView = WinView(frame)/*Sets the mainview of the window*/
+      fatalError("⚠️️ out of order")
+//      self.contentView = WinView(frame)/*Sets the mainview of the window*/
    }
    /**
     * I think this serves as a block for closing, i.e: prompt the user to save etc
@@ -49,9 +50,9 @@ class Win: NSWindow, NSApplicationDelegate, NSWindowDelegate {
    }
 }
 class WinView: InteractiveView {
-   init(_ frame: CGRect) {
-      super.init(frame: frame)
-   }
-   required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+//   init(_ frame: CGRect) {
+//      super.init(frame: frame)
+//   }
+//   required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 #endif

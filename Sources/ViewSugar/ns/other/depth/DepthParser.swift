@@ -7,7 +7,8 @@ public class DepthParser {
     * - Fixme: ⚠️️ make this T where T is NSView etc
     */
    public static func frontMostView(views: [NSView]) -> NSView? {
-      views.sorted { $0.superview?.subviews.firstIndex(of: $0) ?? 0 > $1.superview?.subviews.firstIndex(of: $1) ?? 0 }.min
+      // - Fixme: ⚠️️ could be wrong?
+      views.sorted { $0.superview?.subviews.firstIndex(of: $0) ?? 0 > $1.superview?.subviews.firstIndex(of: $1) ?? 0 }.first
    }
    /**
     * Return the front most view
